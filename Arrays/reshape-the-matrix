@@ -1,0 +1,32 @@
+https://leetcode.com/problems/reshape-the-matrix/description/
+
+class Solution {
+    public int[][] matrixReshape(int[][] mat, int r, int c) {
+
+        int m = mat.length;
+        int n = mat[0].length;
+
+        if((m==r && n==c)|| (m*n) !=(r*c)){
+            return mat;
+        }
+        
+
+        int[][] res = new int[r][c];
+
+        int a=0,b=0;
+
+        for(int i = 0 ;i<r;i++){
+            for(int j= 0;j<c;j++){
+                res[i][j]= mat[a][b];
+                b++;
+                if(b>=n){
+                    b=0;
+                    a++;
+                }
+            }
+        }
+
+        return res;
+        
+    }
+}
